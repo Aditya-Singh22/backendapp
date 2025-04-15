@@ -169,7 +169,7 @@ app.post('/register', async (req, res) => {
     res.send('User registered successfully!');
   } catch (err) {
     console.error('[ERROR] /register:', err);
-    res.status(500).send('Error registering user');
+    res.status(500).send(`Error: ${err.message}`);
   }
 });
 
@@ -199,7 +199,8 @@ app.post('/login', async (req, res) => {
     }
   } catch (err) {
     console.error(err);
-    res.status(500).send('Server error during login.');
+    res.status(500).send(`Error: ${err.message}`);
+
   }
 });
 
